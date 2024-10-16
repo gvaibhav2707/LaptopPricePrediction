@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Laptop Price Prediction System</h1>
+        <form class="prediction-form" action="/predict" method="POST">
+            <div class="form-group">
+                <label for="company">Company</label>
+                <select id="company" name="company">
+                    <option value="">Select Company</option>
+                    {% for company in company_options %}
+                        <option value="{{ company }}">{{ company }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="type">Type</label>
+                <select id="type" name="type">
+                    <option value="">Select Type</option>
+                    {% for type in type_options %}
+                        <option value="{{ type }}">{{ type }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="displaySize">Display Size</label>
+                <select id="displaySize" name="displaySize">
+                    <option value="">Select Display Size in Inches</option>
+                    {% for Inches in Inches_options %}
+                        <option value="{{ Inches }}">{{ Inches }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="screenResolution">Screen Resolution</label>
+                <select id="screenResolution" name="screenResolution">
+                    <option value="">Select Resolution</option>
+                    {% for resolution in screen_resolution_options %}
+                        <option value="{{ resolution }}">{{ resolution }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="cpu">CPU</label>
+                <select id="cpu" name="cpu">
+                    <option value="">Select CPU</option>
+                    {% for cpu in cpu_options %}
+                        <option value="{{ cpu }}">{{ cpu }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="ram">RAM</label>
+                <select id="ram" name="ram">
+                    <option value="">Select RAM</option>
+                    {% for ram in ram_options %}
+                        <option value="{{ ram }}">{{ ram }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="memory">Memory</label>
+                <select id="memory" name="memory">
+                    <option value="">Select Memory</option>
+                    {% for memory in memory_options %}
+                        <option value="{{ memory }}">{{ memory }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="graphicCard">Graphic Card</label>
+                <select id="graphicCard" name="graphicCard">
+                    <option value="">Select Graphic Card</option>
+                    {% for gpu in gpu_options %}
+                        <option value="{{ gpu }}">{{ gpu }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="os">Operating System</label>
+                <select id="os" name="os">
+                    <option value="">Select OS</option>
+                    {% for Op_Sys in Op_Sys_options %}
+                        <option value="{{ Op_Sys }}">{{ Op_Sys }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Predict Price</button>
+            </div>
+        </form>
+        {% if msg %}
+        <div class="result-message">
+            <h3>{{ msg }}</h3>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
